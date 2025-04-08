@@ -6,6 +6,7 @@
     <title>{% block title %}Fábrica de Software FTT{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css" >
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +26,13 @@
                     <li><a href="{% url 'integrantes' %}">Integrantes</a></li>
                     <li><a href="{% url 'curso' %}">Curso</a></li>
                     <li><a href="{% url 'solicitacao_projetos' %}">Solicitação de Projetos</a></li>
+                    <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                 </ul>
             </nav>
 
-            <button class="mobile-menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('active')">
+           <!--<button class="mobile-menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('active')">
                 ☰
-            </button>
+            </button> -->
         </div>
     </header>
 
@@ -43,5 +45,16 @@
     <footer class="container" style="margin-top: 4rem; text-align: center; padding: 2rem 0; color: var(--color-light-grey); font-size: 0.9rem;">
         &copy; {{ now|date:"Y" }} FTT - Fábrica de Tecnologias Turing 2025
     </footer>
+
+    <script>
+            // Basic mobile menu toggle (optional)
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if(menuToggle && mainNav) {
+                menuToggle.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                });
+            }
+        </script>
 </body>
 </html>

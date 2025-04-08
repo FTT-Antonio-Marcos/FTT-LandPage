@@ -3,5 +3,98 @@
 {% block title %}Curso{% endblock %}
 
 {% block content %}
-    <h1>Bem-vindo à página de Curso!</h1>
+{% load static %}
+    <section class="hero-course">
+            <div class="container hero-course-content">
+                 <img src="{% static 'img/logocurso.png' %}" alt="UniEVANGÉLICA Logo" class="uni-logo">
+                 <h1 class="course-title">Engenharia de Software</h1>
+                 <p class="university-name">UniEVANGÉLICA - Universidade Evangélica de Goiás</p>
+                 <div class="course-info-blocks">
+                     <div class="info-block">
+                         <i class="fas fa-calendar-alt info-icon"></i> <!-- Ícone Font Awesome -->
+                         <span>4 anos</span>
+                     </div>
+                     <div class="info-block">
+                         <i class="fas fa-clock info-icon"></i>
+                         <span>Matutino / Noturno</span>
+                     </div>
+                     <div class="info-block">
+                         <i class="fas fa-map-marker-alt info-icon"></i>
+                         <span>Anápolis e Ceres - GO</span>
+                     </div>
+                 </div>
+                 <!-- Poderia ter um botão CTA aqui, ex: "Saiba Mais na UniEVANGÉLICA" -->
+            </div>
+             <!-- Elemento visual sutil no fundo -->
+            <div class="hero-course-visual-overlay"></div>
+        </section>
+
+        <!-- Seção "Por que?" (Adaptação Tela 2) -->
+        <section class="course-section why-section">
+            <div class="container section-container-split">
+                <div class="section-text">
+                    <h2>Por que fazer Engenharia de Software?</h2>
+                    <p>A Engenharia de Software é mais do que uma carreira; é uma porta para o futuro. Com a capacidade de impactar o mundo, solucionar problemas complexos e criar inovações que moldam nossa sociedade, a Engenharia de Software oferece um mundo de possibilidades.</p>
+                    <p>Se você busca crescimento profissional, desafios emocionantes e a oportunidade de contribuir para um mundo mais conectado e eficiente, esta é a escolha perfeita. Junte-se a nós e descubra como a Engenharia de Software pode transformar sua paixão por tecnologia em uma carreira empolgante e recompensadora.</p>
+                </div>
+                <div class="section-visual">
+                     <!-- Opção 1: Remover ilustração antiga -->
+                     <!-- Opção 2: Adicionar um gráfico abstrato/ícone moderno -->
+                     <img src="{% static 'img/vector.png' %}" class="fas fa-laptop-code section-icon-visual">
+                     <!-- Opção 3: Adaptar a ilustração antiga (mais complexo) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção "FTT na Prática" (Adaptação Tela 3) -->
+        <section class="course-section ftt-practice-section">
+             <!-- Fundo com destaque sutil -->
+             <div class="section-background-highlight"></div>
+             <div class="container">
+                 <h2>Garanta o seu futuro com a Engenharia de Software da UniEVANGÉLICA!</h2>
+                 <div class="section-container-split reverse-layout-on-desktop"> <!-- Imagem direita, texto esquerda -->
+                      <div class="section-text">
+                         <p>No curso de Engenharia de Software na UniEVANGÉLICA, não apenas fornecemos conhecimento teórico sólido, mas também abrimos portas para a experiência prática real através da <strong>Fábrica de Tecnologias Turing (FTT)</strong>.</p>
+                         <p>Aqui, você terá a oportunidade de aplicar seus conhecimentos em projetos reais e desafiadores, mergulhando em metodologias ágeis de desenvolvimento e trabalhando lado a lado com profissionais experientes. Com acesso a esse ambiente dinâmico, você estará preparado para enfrentar o mundo real de desenvolvimento de software.</p>
+                         <p>Venha fazer parte do nosso grupo de alunos, onde o aprendizado prático é o grande diferencial que fará a diferença em sua jornada rumo ao sucesso na área de tecnologia.</p>
+                     </div>
+                     <div class="section-visual ftt-visual">
+                         <img src="{% static 'img/foguete.png' %}">
+                          <!--<div class="network-graph-placeholder">
+                             <span class="node"></span><span class="node"></span><span class="node"></span>
+                             <span class="line"></span><span class="line"></span><span class="line"></span>
+                         </div>-->
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Seção Coordenação (Adaptação Tela 4) -->
+        <section class="course-section coordination-section">
+            <div class="container">
+                <h2>Coordenação de Curso</h2>
+                <div class="coordinator-profile">
+                    <div class="coordinator-photo">
+                        <img src="{% static 'img/natasha.png' %}" alt="Foto de Natasha Sophie Pereira"> <!-- Substituir pelo caminho real -->
+                    </div>
+                    <div class="coordinator-info">
+                        <h3>Natasha Sophie Pereira</h3>
+                        <p class="coordinator-title">Coordenadora do Curso de Engenharia de Software e Análise e Desenvolvimento de Sistemas da UniEVANGÉLICA.<br> Dra. em Sociedade, Tecnologia e Meio Ambiente.</p>
+                        <div class="coordinator-contact">
+                            <a href="mailto:email@exemplo.com" aria-label="Email" class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/..." target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <!-- Adicionar outros ícones se houver -->
+                            <!-- <a href="#" aria-label="Outro Link" class="contact-icon">
+                                <i class="fas fa-link"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 {% endblock %}

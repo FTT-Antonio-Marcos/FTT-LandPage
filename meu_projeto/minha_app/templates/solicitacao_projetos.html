@@ -3,5 +3,139 @@
 {% block title %}Solicitação de Projetos{% endblock %}
 
 {% block content %}
-    <h1>Bem-vindo à página de Solicitação de Projetos!</h1>
+{% load static %}
+     <main>
+        <section class="form-section">
+            <div class="container">
+                <h2>Solicite seu Projeto</h2>
+                <p class="form-intro">Preencha o formulário abaixo para detalhar sua necessidade. Entraremos em contato em breve.</p>
+
+                <!-- Barra de Progresso -->
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="progressBarFill"></div>
+                    </div>
+                    <div class="progress-steps" id="progressSteps">
+                        <!-- Steps serão adicionados por JS ou podem ser hardcoded -->
+                        <span class="step-indicator active" data-step="1">1</span>
+                        <span class="step-indicator" data-step="2">2</span>
+                        <span class="step-indicator" data-step="3">3</span>
+                         <span class="step-indicator" data-step="4">4</span>
+                        <!-- Adicione mais spans conforme o número de etapas -->
+                    </div>
+                </div>
+
+
+                <!-- Formulário Multi-Etapas -->
+                <form id="multiStepForm" class="multi-step-form" action="#" method="POST" novalidate>
+
+                    <!-- Etapa 1: Informações de Contato -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">Informações de Contato</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="companyName">Nome da Empresa/Organização*</label>
+                                <input type="text" id="companyName" name="companyName" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email de Contato*</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required>
+                                 <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Telefone (com DDD)</label>
+                                <input type="tel" id="contactPhone" name="contactPhone" placeholder="(XX) XXXXX-XXXX">
+                                 <span class="error-message"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 2: Detalhes Iniciais do Projeto -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">Sobre o Projeto</h3>
+                         <div class="form-grid">
+                            <div class="form-group">
+                                <label for="projectName">Nome do Projeto*</label>
+                                <input type="text" id="projectName" name="projectName" required>
+                                 <span class="error-message"></span>
+                            </div>
+                            <div class="form-group full-width"> <!-- Ocupa largura total -->
+                                <label for="projectBrief">Descrição Breve* (Resumo da ideia)</label>
+                                <textarea id="projectBrief" name="projectBrief" rows="4" required></textarea>
+                                 <span class="error-message"></span>
+                            </div>
+                             <div class="form-group">
+                                <label for="projectArea">Área Principal do Projeto*</label>
+                                <select id="projectArea" name="projectArea" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="web_dev">Desenvolvimento Web</option>
+                                    <option value="mobile_dev">Desenvolvimento Mobile</option>
+                                    <option value="data_science">Ciência de Dados / IA</option>
+                                    <option value="iot">Internet das Coisas (IoT)</option>
+                                    <option value="automation">Automação</option>
+                                    <option value="other">Outra</option>
+                                </select>
+                                 <span class="error-message"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 3: Detalhes Técnicos e Objetivos -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">Detalhes Adicionais</h3>
+                         <div class="form-grid">
+                             <div class="form-group full-width">
+                                <label for="projectGoals">Principais Objetivos* (O que esperam alcançar?)</label>
+                                <textarea id="projectGoals" name="projectGoals" rows="4" required></textarea>
+                                 <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="techPreferences">Tecnologias Desejadas (Opcional)</label>
+                                <input type="text" id="techPreferences" name="techPreferences" placeholder="Ex: React, Python, AWS">
+                            </div>
+                            <div class="form-group">
+                                <label for="budgetRange">Orçamento Estimado (Opcional)</label>
+                                <select id="budgetRange" name="budgetRange">
+                                    <option value="">Não definido</option>
+                                    <option value="<5k">Menos de R$ 5.000</option>
+                                    <option value="5k-15k">R$ 5.000 - R$ 15.000</option>
+                                    <option value="15k-30k">R$ 15.000 - R$ 30.000</option>
+                                    <option value=">30k">Acima de R$ 30.000</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Etapa 4: Confirmação e Envio -->
+                    <div class="form-step" data-step="4">
+                        <h3 class="step-title">Revisão e Envio</h3>
+                        <div class="form-group full-width">
+                           <p>Revise suas informações nas etapas anteriores. Se tudo estiver correto, clique em "Enviar Solicitação".</p>
+                           <!-- Poderia adicionar um resumo dos dados aqui com JS -->
+                           <label for="terms">
+                               <input type="checkbox" id="terms" name="terms" required>
+                               Li e concordo com os termos de solicitação de projeto.*
+                           </label>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+
+                    <!-- Botões de Navegação -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary btn-prev" id="prevBtn" style="display: none;">Anterior</button>
+                        <button type="button" class="btn btn-primary btn-next" id="nextBtn">Próximo</button>
+                        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn" style="display: none;">Enviar Solicitação</button>
+                    </div>
+
+                </form>
+                 <div id="formSuccessMessage" class="success-message" style="display: none;">
+                    <h3>Obrigado!</h3>
+                    <p>Sua solicitação de projeto foi enviada com sucesso. Entraremos em contato em breve.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
 {% endblock %}

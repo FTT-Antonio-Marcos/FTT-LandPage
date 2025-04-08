@@ -1,13 +1,65 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --color-black: #0a0a0a;
+    --color-black: #0a0a0a; /* Slightly off-black */
     --color-dark-grey: #1a1a1a;
-    --color-red: #e50914;
+    --color-red: #e50914;   /* Vibrante red */
     --color-red-dark: #b20710;
-    --color-accent: #ffffff;
+    --color-accent: #a855f7; /* Roxo/Violeta como no original para detalhes */
     --color-white: #ffffff;
     --color-light-grey: #cccccc;
     --font-primary: 'Poppins', sans-serif;
+}
+
+@keyframes slideFadeInNav {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Começa um pouco acima */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição normal */
+    }
+}
+
+
+
+@keyframes fadeInAnimation {
+    /* Estado inicial da animação */
+    from {
+        opacity: 0;
+        /* Opcional: Adicionar um leve movimento vertical */
+        /* transform: translateY(15px); */
+    }
+    /* Estado final da animação */
+    to {
+        opacity: 1;
+        /* transform: translateY(0); */
+    }
+}
+
+/* Opcional: Estilizar a barra de rolagem (exemplo para Webkit/Blink - Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-dark-grey);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-red);
+    border-radius: 4px;
+    border: 2px solid var(--color-dark-grey); /* Creates padding around thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+     background-color: var(--color-red-dark);
+}
+
+/* Opcional: Estilizar barra de rolagem para Firefox */
+/* (Nota: Menos opções de customização no Firefox) */
+html { /* Ou body */
+    scrollbar-width: thin;          /* "auto" or "thin" */
+    scrollbar-color: var(--color-red) var(--color-dark-grey);   /* thumb track */
 }
 
 * {
@@ -16,22 +68,19 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 15px; /* Tamanho base mais discreto */
-}
+
 
 body {
     font-family: var(--font-primary);
     background-color: var(--color-black);
     color: var(--color-white);
-    line-height: 1.75;
-    overflow-x: hidden;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    /* Subtle background lines */
     background-image:
         linear-gradient(rgba(229, 9, 20, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(229, 9, 20, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    font-size: 1rem;
+    background-size: 50px 50px; /* Size of the grid */
 }
 
 .container {
@@ -57,12 +106,12 @@ img {
 
 /* --- Header --- */
 .site-header {
-    background-color: rgba(10, 10, 10, 0.85);
+    background-color: rgba(10, 10, 10, 0.85); /* Semi-transparent black */
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); /* Blur effect */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -70,8 +119,6 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
 }
 
 .logo {
@@ -80,44 +127,38 @@ img {
 }
 
 .logo-img {
-    height: 38px;
+    height: 40px; /* Adjust as needed */
     margin-right: 10px;
-}
-
-.logo-text {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #fff;
+    vertical-align: middle;
 }
 
 .site-name {
     font-weight: 600;
-    font-size: 1rem;
-}
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+    font-size: 1.1rem;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    gap: 1.5rem; /* Spacing between items */
 }
 
+
 .main-nav ul li a {
-    font-weight: 500;
+    /* Seus estilos existentes aqui: */
+    color: var(--color-white);
+    font-weight: 400;
     font-size: 0.95rem;
     padding: 0.5rem 0;
     position: relative;
-}
+    /* ... outros estilos ... */
 
+    /* Adicione ou ajuste a propriedade 'transition' AQUI: */
+    transition: color 0.3s ease, font-weight 0.3s ease;
+    /* Você pode adicionar outras propriedades se elas mudarem também, ex: background-color */
+}
 .main-nav ul li a::after {
+    /* Seus estilos existentes aqui: */
     content: '';
     position: absolute;
     bottom: 0;
@@ -125,23 +166,26 @@ img {
     width: 0;
     height: 2px;
     background-color: var(--color-red);
-    transition: width 0.3s ease;
-}
 
+    /* Garanta que a transição para a largura está aqui: */
+    transition: width 0.3s ease;
+    /* Você pode adicionar outras propriedades se elas mudarem também, ex: background-color */
+}
 .main-nav ul li a:hover::after {
     width: 100%;
 }
 
+
 .btn {
-    padding: 0.6rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
     font-family: var(--font-primary);
-    font-size: 0.95rem;
-    display: inline-block;
+    font-size: 0.9rem;
+    display: inline-block; /* For anchor tags styled as buttons */
     text-align: center;
 }
 
@@ -152,133 +196,1626 @@ img {
 
 .btn-signin:hover {
     background-color: var(--color-white);
-    color: var(--color-black);
+    color: var(--color-black); /* Ensure text remains readable */
 }
 
 .mobile-menu-toggle {
-    display: none;
+    display: none; /* Hidden by default */
     background: none;
     border: none;
     color: var(--color-white);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 /* --- Hero Section --- */
 .hero {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px); /* Adjust 80px based on header height */
     display: flex;
     align-items: center;
     padding: 4rem 0;
-    position: relative;
-    overflow: hidden;
+    position: relative; /* For positioning visual elements */
+    overflow: hidden; /* Ensure visual doesn't overflow weirdly */
 }
 
 .hero-container {
     display: flex;
     align-items: center;
     gap: 3rem;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .hero-text {
-    flex: 1 1 55%;
-    z-index: 2;
-    text-align: center;
+    flex: 1 1 55%; /* Takes up slightly more space */
+    z-index: 2; /* Above the visual */
 }
 
 .tagline {
     display: block;
     color: var(--color-accent);
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-size: 0.9rem;
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Large headline */
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--color-white);
+     /* Subtle text shadow for depth */
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-text p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--color-light-grey);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 2.5rem;
+    max-width: 550px; /* Limit text width */
 }
 
 .cta-buttons {
     display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 .btn-primary {
     background: linear-gradient(90deg, var(--color-red), var(--color-red-dark));
     color: var(--color-white);
     border: 1px solid var(--color-red-dark);
-    font-size: 0.95rem;
 }
 
 .btn-primary:hover {
     background: linear-gradient(90deg, var(--color-red-dark), var(--color-red));
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgb(140, 140, 140);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
 }
 
 .btn-secondary {
     background-color: transparent;
     color: var(--color-white);
     border: 1px solid var(--color-light-grey);
-    font-size: 0.95rem;
 }
 
 .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border-color: var(--color-white);
-    color: var(--color-white);
+    color: var(--color-white); /* Keep color consistent on hover */
 }
 
-/* --- Responsive Text Adjustments --- */
+/* --- Hero Visual (Abstract Network Concept) --- */
+.hero-visual {
+    flex: 1 1 45%;
+    position: relative;
+    min-height: 400px; /* Ensure space for visuals */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Central Glow Effect */
+.hero-visual::before {
+    content: '';
+    position: absolute;
+    width: 500px; /* Large glow */
+    height: 500px;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.2) 0%, rgba(229, 9, 20, 0) 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Behind nodes */
+    pointer-events: none; /* Allow clicks through */
+    animation: pulseGlow 5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.95); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+
+/* Simple Nodes Representation */
+.network-node {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(229, 9, 20, 0.3);
+    animation: floatNode 6s infinite ease-in-out alternate;
+}
+
+/* Position nodes - adjust these for desired layout */
+.node1 { top: 10%; left: 20%; width: 20px; height: 20px; animation-delay: 0s; }
+.node2 { top: 30%; right: 15%; width: 12px; height: 12px; animation-delay: -1s; }
+.node3 { bottom: 20%; left: 30%; width: 18px; height: 18px; animation-delay: -2s; }
+.node4 { bottom: 40%; right: 35%; width: 10px; height: 10px; animation-delay: -3s; }
+.node5 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 25px; height: 25px; background-color: var(--color-red); animation-delay: -0.5s; } /* Central node */
+
+@keyframes floatNode {
+    from { transform: translate(0, 0); }
+    to { transform: translate(5px, -8px); }
+}
+
+/* Add faint lines concept (very basic) */
+.hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* Cover the area */
+    background-image:
+        /* Faint lines connecting towards center (example) */
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.5;
+    z-index: -2; /* Furthest back */
+     mask-image: radial-gradient(circle, black 50%, transparent 80%); /* Fade out edges */
+     -webkit-mask-image: radial-gradient(circle, black 50%, transparent 80%);
+}
+
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -10px);
+  }
+  60% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+
+/* --- Responsive Design --- */
 @media (max-width: 992px) {
     .hero-text h1 {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
     }
     .hero-text p {
         font-size: 1rem;
     }
-    .main-nav ul li a {
-        font-size: 0.9rem;
+    .main-nav {
+        display: none; /* Hide nav links by default on smaller screens */
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-dark-grey);
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .btn {
-        font-size: 0.9rem;
+    .main-nav.active {
+        display: block; /* Show when active */
     }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .mobile-menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+    .header-actions .btn-signin {
+        display: none; /* Optionally hide sign in button in mobile header */
+    }
+     .hero-visual {
+        min-height: 300px; /* Reduce height */
+    }
+    .hero-visual::before { /* Scale down glow */
+        width: 350px;
+        height: 350px;
+    }
+
 }
 
 @media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 2rem;
+    .header-container {
+        flex-wrap: wrap; /* Allow header items to wrap if needed */
+        justify-content: space-between; /* Keep logo left, toggle right */
+    }
+     .main-nav { /* Ensure nav takes full width when open */
+        width: 100%;
+        order: 3; /* Make nav appear below logo/toggle */
+    }
+    .hero-container {
+        flex-direction: column; /* Stack text and visual vertically */
+        text-align: center;
+        gap: 2rem;
+    }
+    .hero-text {
+        flex-basis: auto; /* Reset flex basis */
+        order: 2; /* Text below visual */
+    }
+     .hero-visual {
+        flex-basis: auto;
+        min-height: 250px;
+        order: 1; /* Visual first */
+        margin-bottom: 2rem;
+         width: 80%; /* Make visual smaller */
+         margin-left: auto;
+         margin-right: auto;
+    }
+     .hero-visual::before {
+        width: 300px;
+        height: 300px;
     }
     .hero-text p {
-        font-size: 0.95rem;
+        margin-left: auto;
+        margin-right: auto; /* Center paragraph */
     }
-    .main-nav ul li a {
-        font-size: 0.85rem;
+    .cta-buttons {
+        justify-content: center; /* Center buttons */
     }
-    .btn {
-        font-size: 0.85rem;
+
+}
+
+/* --- Estilos da Página de Solicitação --- */
+
+.form-section {
+    padding: 4rem 0; /* Espaçamento vertical */
+}
+
+.form-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.form-intro {
+    text-align: center;
+    color: var(--color-light-grey);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Barra de Progresso --- */
+.progress-bar-container {
+    margin-bottom: 3rem;
+    max-width: 800px; /* Limita largura da barra */
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-dark-grey); /* Fundo escuro */
+    border-radius: 4px;
+    overflow: hidden;
+     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%; /* Começa em 0, JS atualiza */
+    background: linear-gradient(90deg, var(--color-red-dark), var(--color-red)); /* Gradiente vermelho */
+    border-radius: 4px;
+    transition: width 0.4s ease-out; /* Animação suave */
+}
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding: 0 5px; /* Pequeno padding para alinhar com a barra */
+}
+
+.step-indicator {
+    font-size: 0.85rem;
+    color: var(--color-light-grey);
+    background-color: var(--color-dark-grey);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+/* Estilo do passo ativo (completado) */
+.step-indicator.active {
+     background-color: var(--color-red);
+     color: var(--color-white);
+     border-color: var(--color-red-dark);
+}
+/* Estilo do passo atual (número destacado) */
+.step-indicator.current {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+
+/* --- Formulário Multi-Etapas --- */
+.multi-step-form {
+    background-color: rgba(30, 30, 30, 0.5); /* Fundo levemente transparente */
+    padding: 2rem 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 800px; /* Mesma largura da barra */
+    margin: 0 auto; /* Centraliza */
+    backdrop-filter: blur(3px); /* Efeito de vidro fosco sutil */
+}
+
+.form-step {
+    display: none; /* Esconde todas as etapas por padrão */
+    animation: fadeIn 0.5s ease-in-out; /* Animação de entrada */
+}
+
+.form-step.active {
+    display: block; /* Mostra a etapa ativa */
+}
+
+.step-title {
+    font-size: 1.5rem;
+    color: var(--color-red);
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+/* Grid para os campos do formulário */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout responsivo */
+    gap: 1.5rem; /* Espaçamento entre campos */
+}
+
+.form-group {
+    margin-bottom: 0; /* O gap do grid cuida do espaçamento */
+    position: relative; /* Para mensagens de erro */
+}
+
+/* Campo que ocupa largura total no grid */
+.form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-light-grey);
+}
+/* Estilo para o asterisco de obrigatório */
+.form-group label:after {
+    content: " *";
+    color: var(--color-red);
+    display: inline; /* Garante que fique na mesma linha */
+}
+/* Remove asterisco para labels que não tem 'required' no input/select/textarea associado (requer JS ou classes manuais) */
+/* Ou, mais simples, só colocar label* no HTML para os obrigatórios */
+.form-group input:not([required]) + label:after,
+.form-group textarea:not([required]) + label:after,
+.form-group select:not([required]) + label:after {
+    content: "";
+}
+/* Ou remover do label no HTML e adicionar manualmente no CSS para os que SÃO obrigatórios */
+.form-group input[required] ~ label:after, /* Se label vier DEPOIS */
+.form-group textarea[required] ~ label:after,
+.form-group select[required] ~ label:after {
+   content: " *"; color: var(--color-red);
+}
+/* A forma mais fácil é colocar o asterisco diretamente no HTML da label */
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: rgba(10, 10, 10, 0.8); /* Fundo escuro dos inputs */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar só verticalmente */
+    min-height: 80px;
+}
+
+.form-group select {
+    appearance: none; /* Remove estilo padrão do select */
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.65em auto;
+    padding-right: 2.5rem; /* Espaço para a seta */
+}
+/* Cor das opções no select */
+.form-group select option {
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-red); /* Borda vermelha no foco */
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3); /* Brilho suave no foco */
+}
+
+/* Estilo para campos inválidos */
+.form-group input.invalid,
+.form-group textarea.invalid,
+.form-group select.invalid {
+    border-color: #ff7b7b; /* Vermelho claro para erro */
+}
+
+.error-message {
+    color: #ff7b7b;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: block; /* Para ocupar espaço mesmo vazio */
+    min-height: 1em; /* Evita que layout pule */
+}
+
+
+/* Checkbox e Label */
+.form-group label[for="terms"] {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    cursor: pointer;
+    font-weight: 400; /* Normal weight for terms */
+    margin-top: 1rem;
+}
+.form-group input[type="checkbox"] {
+    width: auto; /* Tamanho natural */
+    accent-color: var(--color-red); /* Cor do check */
+    width: 1.1em;
+    height: 1.1em;
+    cursor: pointer;
+}
+/* Remove o asterisco padrão da label do checkbox */
+.form-group label[for="terms"]:after {
+    content: "";
+}
+/* Adiciona asterisco SE o checkbox for required (JS valida, mas visualmente ajuda) */
+.form-group input[type="checkbox"][required] + label:after {
+     content: " *"; color: var(--color-red); display: inline;
+}
+
+
+/* --- Botões de Navegação --- */
+.form-navigation {
+    display: flex;
+    justify-content: space-between; /* Alinha botões */
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha separadora */
+}
+
+/* Ajustes específicos para os botões do formulário se necessário */
+.form-navigation .btn {
+    min-width: 120px; /* Largura mínima para consistência */
+    text-align: center;
+}
+/* Botão Anterior com estilo secundário */
+.btn-prev {
+    background-color: transparent;
+    color: var(--color-light-grey);
+    border: 1px solid var(--color-light-grey);
+}
+.btn-prev:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+
+/* --- Mensagem de Sucesso --- */
+.success-message {
+    background-color: rgba(10, 30, 15, 0.7); /* Verde escuro semi-transparente */
+    border: 1px solid #2a9d8f; /* Verde azulado para borda */
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #e9f5f3; /* Cor de texto clara */
+    max-width: 600px;
+    margin: 2rem auto;
+    backdrop-filter: blur(3px);
+}
+.success-message h3 {
+    color: #6ff0d8; /* Verde claro para título */
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+/* --- Animação --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsividade Adicional para o Formulário --- */
+@media (max-width: 768px) {
+    .form-section h2 {
+        font-size: 2rem;
     }
-    .tagline {
-        font-size: 0.8rem;
+     .multi-step-form {
+        padding: 1.5rem;
     }
+    .form-grid {
+       grid-template-columns: 1fr; /* Uma coluna em telas menores */
+       gap: 1rem;
+    }
+    .step-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+     .form-navigation {
+        flex-direction: column-reverse; /* Empilha botões, Próximo/Enviar em cima */
+        gap: 1rem;
+        align-items: center;
+    }
+     .form-navigation .btn {
+        width: 100%; /* Botões ocupam largura total */
+        max-width: 300px;
+    }
+     .progress-steps {
+        /* Poderia esconder os números em telas muito pequenas se necessário */
+        /* display: none; */
+    }
+}
+
+/* Adiciona estilo para link ativo no header */
+.main-nav ul li a.active-nav {
+    color: var(--color-red); /* Destaca o link da página atual */
+    font-weight: 600;
+}
+.main-nav ul li a.active-nav::after {
+     width: 100%; /* Mostra sublinhado no link ativo */
+     background-color: var(--color-red);
+}
+
+/* --- Animação de Entrada Suave para Itens do Header --- */
+
+.main-nav ul li {
+    /* Aplica a animação a cada item da lista */
+    animation-name: slideFadeInNav;
+    animation-duration: 0.4s; /* Duração da animação para cada item */
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards; /* Garante que o estado inicial (invisível) seja aplicado antes da animação */
+
+    /* Define um atraso base (opcional, pode começar do 0s) */
+    /* animation-delay: 0.1s; */ /* Removido para usar nth-child */
+}
+
+/* Aplica atrasos crescentes para cada item */
+.main-nav ul li:nth-child(1) {
+    animation-delay: 0.15s; /* Atraso para o primeiro item (Início) */
+}
+.main-nav ul li:nth-child(2) {
+    animation-delay: 0.20s; /* Atraso para o segundo item */
+}
+.main-nav ul li:nth-child(3) {
+    animation-delay: 0.25s; /* Atraso para o terceiro item */
+}
+.main-nav ul li:nth-child(4) {
+    animation-delay: 0.30s; /* Etc... continue para quantos itens você tiver */
+}
+.main-nav ul li:nth-child(5) {
+    animation-delay: 0.35s;
+}
+.main-nav ul li:nth-child(6) {
+    animation-delay: 0.40s; /* Ex: Solicitação de Projetos */
+}
+/* Adicione mais regras :nth-child se tiver mais links */
+
+/* Opcional: Animar também o logo e o botão de Sign In? */
+.logo {
+     /* Pode aplicar a mesma animação ou uma similar */
+     animation: slideFadeInNav 0.4s ease-out backwards 0.1s; /* Delay pequeno */
+}
+.header-actions .btn-signin {
+     /* Pode aplicar a mesma animação ou uma similar */
+      animation: slideFadeInNav 0.4s ease-out backwards 0.45s; /* Delay um pouco maior */
+}
+
+/* --- Estilos da Página de Curso --- */
+
+/* --- Hero Section Curso --- */
+.hero-course {
+    background-color: var(--color-dark-grey); /* Fundo escuro */
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Overlay sutil com padrão ou gradiente */
+.hero-course-visual-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.15) 0%, rgba(229, 9, 20, 0) 60%),
+                      /* Reutiliza o padrão de linhas do body, talvez mais sutil */
+                      linear-gradient(rgba(229, 9, 20, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(229, 9, 20, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px; /* Ajusta o tamanho do padrão */
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.hero-course-content {
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 2;
+}
+
+.uni-logo { /* Estilo se usar o logo da Uni */
+
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.course-title {
+    font-size: 3rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.university-name {
+    font-size: 1.1rem;
+    color: var(--color-light-grey);
+    margin-bottom: 2.5rem;
+}
+
+.course-info-blocks {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Para telas menores */
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--color-light-grey);
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-icon {
+    color: var(--color-red); /* Ícone vermelho */
+    font-size: 1.1rem;
+}
+
+/* --- Seções de Conteúdo Genéricas --- */
+.course-section {
+    padding: 4rem 0;
+    position: relative; /* Para fundos especiais */
+}
+/* Cor de fundo alternada (opcional) */
+.course-section:nth-child(odd) { /* Seções ímpares no main */
+     background-color: var(--color-black); /* Ou a cor base do body */
+}
+.course-section:nth-child(even) { /* Seções pares no main */
+     background-color: var(--color-dark-grey); /* Um pouco diferente */
+}
+
+
+.course-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.section-container-split {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.section-text {
+    flex: 1 1 60%; /* Texto ocupa mais espaço */
+}
+.section-text p {
+    margin-bottom: 1rem;
+    color: var(--color-light-grey);
+    line-height: 1.7;
+}
+.section-text strong {
+    color: var(--color-red); /* Destaca FTT */
+    font-weight: 600;
+}
+
+
+.section-visual {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+/* Ícone grande como visual */
+.section-icon-visual {
+    font-size: 8rem;
+    color: var(--color-red);
+    opacity: 0.3;
+}
+
+/* Placeholder para gráfico FTT */
+.ftt-visual .network-graph-placeholder {
+    /* Simular visual da rede - exemplo muito básico */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 2rem;
+    opacity: 0.5;
+}
+.ftt-visual .node {
+    display: inline-block;
+    width: 15px; height: 15px; background-color: var(--color-red); border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-red);
+}
+.ftt-visual .line {
+    display: inline-block;
+    width: 40px; height: 2px; background-color: rgba(229, 9, 20, 0.5);
+}
+
+/* Inverter layout (imagem direita) */
+.reverse-layout-on-desktop {
+    flex-direction: row-reverse; /* Inverte a ordem no desktop */
+}
+
+
+/* Seção Específica FTT */
+.ftt-practice-section {
+     background-color: var(--color-dark-grey); /* Pode ser um pouco diferente */
+     overflow: hidden; /* Para o brilho */
+}
+/* Brilho sutil no fundo desta seção */
+.ftt-practice-section .section-background-highlight {
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 100%;
+    height: 150%;
+    background: radial-gradient(circle at 30% 50%, rgba(229, 9, 20, 0.08) 0%, rgba(229, 9, 20, 0) 50%);
+    z-index: 0;
+     pointer-events: none; /* Não interfere com cliques */
+}
+/* Conteúdo da seção FTT precisa de z-index maior */
+.ftt-practice-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- Seção Coordenação --- */
+.coordination-section {
+    background-color: var(--color-black);
+}
+
+.coordinator-profile {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    background-color: var(--color-dark-grey);
+    padding: 2.5rem;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.coordinator-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Foto circular */
+    object-fit: cover; /* Garante que a imagem cubra sem distorcer */
+    border: 3px solid var(--color-red); /* Borda vermelha */
+}
+
+.coordinator-info {
+    flex: 1; /* Ocupa espaço restante */
+}
+
+.coordinator-info h3 {
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.coordinator-title {
+    font-size: 1rem;
+    color: var(--color-light-grey);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.coordinator-contact {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-icon:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+/* --- Responsividade para Seções do Curso --- */
+@media (max-width: 768px) {
+    .course-title { font-size: 2.5rem; }
+    .university-name { font-size: 1rem; }
+    .info-block { font-size: 0.9rem; padding: 0.6rem 1rem; }
+    .course-info-blocks { gap: 1rem; }
+
+    .section-container-split,
+    .reverse-layout-on-desktop {
+        flex-direction: column; /* Empilha em telas menores */
+        gap: 2rem;
+    }
+    .section-text, .section-visual {
+        flex-basis: auto; /* Reseta a base flex */
+        text-align: center;
+    }
+     .section-text p { text-align: left; } /* Mantem texto do paragrafo alinhado a esquerda */
+     .section-icon-visual { font-size: 6rem; margin-bottom: 1rem;}
+     .ftt-visual .network-graph-placeholder { padding: 1rem; }
+
+
+     /* Coordenação */
+    .coordinator-profile {
+        flex-direction: column; /* Empilha foto e info */
+        text-align: center;
+        padding: 1.5rem;
+    }
+     .coordinator-photo img { width: 120px; height: 120px; margin-bottom: 1rem;}
+     .coordinator-contact { justify-content: center; } /* Centraliza ícones */
+}
+
+/* --- Estilos da Página de Integrantes --- */
+
+.team-section {
+    padding: 4rem 0;
+    background-color: var(--color-black); /* Fundo base da página */
+}
+
+.section-title { /* Título Principal "Nossa Equipe" */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.team-category {
+    margin-bottom: 4rem; /* Espaço entre categorias */
+}
+
+.category-title {
+    /* text-align: center; */ /* Ou deixe alinhado à esquerda */
+    font-size: 1.8rem;
+    color: var(--color-red); /* Subtítulo em vermelho */
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-red); /* Linha vermelha abaixo */
+    display: inline-block; /* Faz a borda ter a largura do texto */
+}
+
+.team-grid {
+    display: grid;
+    /* Cria colunas responsivas: encaixa o máximo de cards com largura mínima de 180px */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem; /* Espaçamento entre os cards */
+}
+
+.member-card {
+    background-color: var(--color-dark-grey); /* Fundo do card */
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Para alinhar botão ao fundo se necessário */
+    flex-direction: column;
+}
+
+.member-card:hover {
+    transform: translateY(-5px); /* Efeito sutil de levantar */
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.15); /* Sombra vermelha suave */
+}
+
+.member-photo {
+    width: 100px; /* Tamanho da foto */
+    height: 100px;
+    border-radius: 50%; /* Foto redonda */
+    margin: 0 auto 1rem auto; /* Centraliza com margem abaixo */
+    overflow: hidden; /* Garante que a imagem fique dentro do círculo */
+    border: 3px solid var(--color-red); /* Borda vermelha */
+    position: relative; /* Para posicionar o ícone placeholder */
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo leve para área da foto */
+}
+
+.member-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre a área sem distorcer */
+}
+
+/* Estilo do Placeholder quando a foto não existe */
+.member-photo.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo um pouco mais visível */
+}
+
+.placeholder-icon {
+    font-size: 3rem; /* Tamanho do ícone */
+    color: var(--color-light-grey); /* Cor do ícone */
+    opacity: 0.5;
+}
+
+.member-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Empurra o botão para baixo se os nomes tiverem tamanhos diferentes */
+}
+
+/* Novo estilo de botão Outline Red (se ainda não existir) */
+.btn-outline-red {
+    background-color: transparent;
+    color: var(--color-red);
+    border: 1px solid var(--color-red);
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    text-decoration: none; /* Para tags <a> */
+    display: inline-block; /* Para tags <a> */
+    margin-top: auto; /* Alinha ao fundo do card se o nome crescer */
+}
+
+.btn-outline-red:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border-color: var(--color-red);
+}
+
+/* --- Responsividade para Grid de Integrantes --- */
+@media (max-width: 480px) {
+    .team-grid {
+        /* Em telas muito pequenas, talvez 2 colunas ou 1 */
+         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+         gap: 1rem;
+    }
+    .member-card { padding: 1rem; }
+    .member-photo { width: 80px; height: 80px; }
+    .member-name { font-size: 1rem; }
+    .btn-outline-red { font-size: 0.8rem; padding: 0.5rem 1rem; }
+}
+
+/* --- Estilos do Modal --- */
+
+.modal-overlay {
+    position: fixed; /* Cobre a tela inteira */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 10, 10, 0.85); /* Fundo escuro semi-transparente */
+    z-index: 1000; /* Fica acima de */
+    display: flex; /* Para centralizar o modal-content */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Começa invisível */
+    visibility: hidden; /* Começa inacessível */
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s; /* Transição suave */
+    backdrop-filter: blur(4px); /* Efeito de vidro fosco */
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+
+.modal-content {
+    background-color: var(--color-dark-grey); /* Fundo do modal */
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 550px; /* Largura máxima do modal */
+    position: relative; /* Para o botão de fechar */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(50px) scale(0.95); /* Começa abaixo e um pouco menor */
+    opacity: 0; /* Começa invisível */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease; /* Transição de entrada */
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1); /* Posição final (slide up) */
+    opacity: 1; /* Visível */
+}
+
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--color-light-grey);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--color-red);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-photo {
+    width: 80px; /* Tamanho da foto no modal */
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-red); /* Borda vermelha */
+    flex-shrink: 0; /* Evita que a foto encolha */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo do placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Estilo para o ícone placeholder DENTRO do modal */
+.modal-photo .placeholder-icon {
+    font-size: 2.5rem;
+    color: var(--color-light-grey);
+    opacity: 0.6;
+}
+
+
+.modal-info {
+    flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+.modal-name {
+    font-size: 1.6rem;
+    color: var(--color-white);
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: var(--color-red); /* Cor padrão da tag */
+    color: var(--color-white);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Exemplo de cores diferentes para tags específicas (opcional) */
+.tag-orientador { background-color: var(--color-accent); } /* Roxo? */
+.tag-interno { background-color: #2a9d8f; } /* Um verde? */
+.tag-dev-back-end { background-color: #e76f51; } /* Laranja/Salmão? */
+.tag-dev-front-end { background-color: #264653; } /* Azul escuro? */
+/* Adicione mais classes .tag-* conforme necessário */
+
+
+.modal-body p {
+    color: var(--color-light-grey);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Opcional: Estilos para contatos no modal */
+.modal-contact {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 1rem;
+}
+.modal-contact .contact-icon { /* Reutiliza estilo da página de curso */
+     width: 35px;
+     height: 35px;
+     font-size: 1rem;
+}
+
+/* Responsividade do Modal */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 1.5rem;
+        max-width: 95%;
+    }
+    .modal-header {
+        flex-direction: column; /* Empilha foto e info */
+        text-align: center;
+        gap: 1rem;
+    }
+     .modal-photo { width: 100px; height: 100px; }
+     .modal-name { font-size: 1.4rem; }
+     .modal-tags { justify-content: center; } /* Centraliza tags */
+     .modal-body p { font-size: 0.9rem; }
+}
+
+/* --- Estilos das Seções de Conteúdo da Home --- */
+
+.content-section {
+    padding: 4rem 0; /* Espaçamento padrão */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Linha sutil entre seções */
+}
+.content-section:last-child {
+    border-bottom: none; /* Remove borda da última seção antes do footer */
+}
+
+/* Cor de fundo alternada (melhora distinção) */
+.content-section:nth-of-type(odd) { /* Primeira seção após hero, terceira, etc. */
+     background-color: var(--color-black);
+}
+.content-section:nth-of-type(even) { /* Segunda seção após hero, quarta, etc. */
+     background-color: var(--color-dark-grey);
+}
+
+/* Títulos e Subtítulos Centrais (Usado em Motivações e Oportunidades) */
+.section-title-center {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+    font-weight: 600;
+}
+.section-subtitle-center {
+    text-align: center;
+    color: var(--color-light-grey);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Layout Dividido Padrão (Texto/Visual) */
+.section-content-split {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.section-text {
+    flex: 1 1 60%;
+}
+.section-visual {
+    flex: 1 1 40%;
+    text-align: center;
+}
+.section-text h2 { /* Título dentro do layout dividido */
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    font-weight: 600;
+     /* text-align: left; */ /* Padrão */
+}
+.section-text p {
+    color: var(--color-light-grey);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+.section-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Layout Dividido Invertido (Visual/Texto) */
+.reverse-layout-on-desktop {
+    flex-direction: row-reverse;
+}
+
+/* --- Seção Sobre --- */
+.about-ftt-section .section-logo {
+    max-width: 150px; /* Tamanho do logo na seção */
+    opacity: 0.8;
+     filter: drop-shadow(0 0 15px rgba(229, 9, 20, 0.3)); /* Brilho vermelho sutil */
+}
+
+/* --- Seção Motivações --- */
+.motivations-section {
+     background-color: var(--color-dark-grey); /* Fundo diferente */
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 ou 3 colunas */
+    gap: 1.5rem;
+}
+
+.benefit-card {
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil do card */
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.benefit-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--color-red);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.benefit-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 0.7rem;
+}
+
+.benefit-card p {
+    font-size: 0.9rem;
+    color: var(--color-light-grey);
+    line-height: 1.6;
+}
+
+/* --- Seção Como Participar --- */
+.how-to-join-section {
+     background-color: var(--color-black); /* Ou outra cor alternada */
+}
+
+.participation-requirements,
+.participation-steps {
+    margin-bottom: 2rem;
+}
+.participation-requirements h3,
+.participation-steps h3 {
+    font-size: 1.4rem;
+    color: var(--color-red);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.participation-requirements p strong {
+    color: var(--color-white); /* Destaca o requisito */
+    font-weight: 600;
+}
+
+
+.steps-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.steps-list li {
+    display: flex;
+    align-items: flex-start; /* Alinha número/ícone com topo do texto */
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.steps-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 35px;
+    height: 35px;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+/* Estilo diferente para o passo final (check) */
+.step-number.final-step {
+    background-color: #2a9d8f; /* Verde como cor de sucesso */
+}
+.step-number.final-step .fa-check {
+     font-size: 0.9em;
+}
+
+.step-text {
+    color: var(--color-light-grey);
+    line-height: 1.6;
+    padding-top: 0.2rem; /* Ajuste fino de alinhamento vertical */
+}
+
+.steps-visual {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.steps-icon-group {
+    display: flex;
+    flex-direction: column; /* Empilha ícones */
+    gap: 2rem;
+    font-size: 3rem;
+    color: var(--color-red);
+    opacity: 0.3;
+}
+
+
+/* --- Seção Oportunidades --- */
+.opportunities-section {
+    background-color: var(--color-dark-grey);
+    text-align: center;
+}
+.opportunities-section h2 {
+     font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    font-weight: 600;
+}
+.opportunities-section p {
+     color: var(--color-light-grey);
+     max-width: 750px;
+     margin: 0 auto 1rem auto;
+     line-height: 1.7;
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--color-black);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.site-footer p {
+    color: var(--color-light-grey);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* --- Responsividade Adicional --- */
+@media (max-width: 768px) {
+    .content-section { padding: 3rem 0; }
+
+    .section-content-split,
+    .reverse-layout-on-desktop {
+        flex-direction: column; /* Empilha */
+        gap: 2rem;
+    }
+    .section-text, .section-visual {
+        flex-basis: auto;
+        text-align: center; /* Centraliza visual e títulos */
+    }
+    .section-text h2 { text-align: center; }
+    .section-text p { text-align: center; } /* Ou text-align: left; se preferir */
+
+    .about-ftt-section .section-logo { max-width: 120px; margin-bottom: 1.5rem; }
+
+    .benefits-grid { grid-template-columns: 1fr; } /* Uma coluna */
+
+    .how-to-join-section .section-content-split { flex-direction: column-reverse; } /* Visual primeiro */
+    .participation-requirements h3, .participation-steps h3 { text-align: center; }
+    .steps-visual { margin-bottom: 2rem; }
+    .steps-icon-group { flex-direction: row; gap: 1.5rem; font-size: 2.5rem; } /* Ícones lado a lado */
+
+    .opportunities-section p { padding: 0 1rem; }
+}
+
+.projects-section {
+    padding: 4rem 0;
+    background-color: var(--color-black); /* Ou cor alternada */
+}
+
+/* Reutiliza .section-title e .section-subtitle-center da Home */
+
+.projects-grid {
+    display: grid;
+    /* Ajuste minmax para largura desejada dos cards de projeto */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; /* Espaçamento entre cards */
+}
+
+.project-card {
+    background-color: var(--color-dark-grey);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Para conter a imagem/visual */
+    display: flex;
+    flex-direction: column; /* Organiza conteúdo verticalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.15);
+}
+
+.project-visual {
+    height: 180px; /* Altura fixa para o visual */
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre a área visual */
+    transition: transform 0.3s ease;
+}
+.project-card:hover .project-visual img {
+     transform: scale(1.05); /* Leve zoom na imagem no hover */
+}
+
+
+/* Placeholder Icon dentro do card de projeto */
+.project-visual.placeholder {
+    background-color: rgba(10, 10, 10, 0.3); /* Fundo mais escuro para placeholder */
+}
+.project-visual .placeholder-icon {
+    font-size: 4rem; /* Tamanho do ícone placeholder */
+    color: var(--color-red);
+    opacity: 0.4;
+}
+
+.project-info {
+    padding: 1.5rem;
+    flex-grow: 1; /* Faz esta área crescer para empurrar o botão para baixo */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.project-short-desc {
+    font-size: 0.9rem;
+    color: var(--color-light-grey);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Ocupa espaço disponível antes das tags */
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem; /* Espaço antes do botão */
+}
+
+/* Reutiliza o estilo .tag definido anteriormente (no modal ou globalmente) */
+/* .tag { ... } */
+/* Adicione classes .tag-* específicas se precisar de cores diferentes */
+.tag-web { background-color: #007bff; } /* Azul */
+.tag-php { background-color: #777bb3; } /* Roxo PHP */
+.tag-react { background-color: #61dafb; color: var(--color-black); } /* Azul React */
+.tag-node { background-color: #68a063; } /* Verde Node */
+.tag-tool { background-color: #fd7e14; } /* Laranja */
+.tag-juridico { background-color: #6f42c1; } /* Roxo */
+
+
+.project-card .btn { /* Estilo do botão dentro do card */
+    margin: 0 1.5rem 1.5rem 1.5rem; /* Margem para alinhar com padding */
+    align-self: center; /* Centraliza botão se o card for flex */
+     width: calc(100% - 3rem); /* Ocupa largura menos padding */
+}
+
+
+/* --- Ajustes no Modal para Projetos --- */
+
+/* Garante que o visual do modal tenha um tamanho razoável */
+.project-modal-visual {
+    width: 120px; /* Ou ajuste conforme necessário */
+    height: 100px;
+    border: 2px solid var(--color-red); /* Borda mais fina talvez? */
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.project-modal-visual img { object-fit: contain; } /* Para ver a imagem inteira */
+.project-modal-visual .placeholder-icon { font-size: 3rem; } /* Ajusta tamanho do ícone no modal */
+
+.project-modal-tags { /* Reutiliza .modal-tags */
+    /* display: flex; flex-wrap: wrap; gap: 0.5rem; */
+}
+
+/* Garante que o h4 antes da descrição no modal esteja estilizado */
+.modal-body h4 {
+    color: var(--color-red);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* Responsividade para Cards de Projeto */
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+    .project-visual { height: 150px; }
 }
