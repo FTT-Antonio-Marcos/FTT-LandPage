@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fábrica de Software FTT{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="{% static 'img/logo.png' %}" alt="Logo FTT" class="logo-img">
+                <span class="logo-text">Fábrica de Tecnologias Turing</span>
+            </div>
+
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="{% url 'home' %}">Início</a></li>
+                    <li><a href="{% url 'projetos' %}">Projetos</a></li>
+                    <li><a href="{% url 'integrantes' %}">Integrantes</a></li>
+                    <li><a href="{% url 'curso' %}">Curso</a></li>
+                    <li><a href="{% url 'solicitacao_projetos' %}">Solicitação de Projetos</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('active')">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        <!-- Conteúdo individual das páginas -->
+        {% endblock %}
+    </main>
+
+    <footer class="container" style="margin-top: 4rem; text-align: center; padding: 2rem 0; color: var(--color-light-grey); font-size: 0.9rem;">
+        &copy; {{ now|date:"Y" }} FTT - Fábrica de Tecnologias Turing 2025
+    </footer>
+</body>
+</html>

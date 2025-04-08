@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Fábrica de Software{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <span class="tagline">CONECTANDO MENTES BRILHANTES AO MERCADO</span>
+                    <h1>Onde a Academia Impulsiona a Inovação do Mercado</h1>
+                    <p>
+                        A Fábrica de Tecnologias Turing é a plataforma que une estudantes talentosos a empresas e organizações. Desenvolva projetos reais, ganhe experiência prática e construa seu futuro profissional.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">Sou Estudante: Buscar Projetos</a>
+                        <a href="#" class="btn btn-secondary">Sou Empresa: Propor Desafio</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- Placeholder for the abstract network visualization -->
+                    <div class="network-node node1"></div>
+                    <div class="network-node node2"></div>
+                    <div class="network-node node3"></div>
+                    <div class="network-node node4"></div>
+                    <div class="network-node node5"></div>
+                    <div class="network-glow"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Basic mobile menu toggle (optional)
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        if(menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+    </script>
+{% endblock %}
