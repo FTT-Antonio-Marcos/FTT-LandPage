@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Inicio{% endblock %}
+{% block title %}Fábrica de Software{% endblock %}
 
 {% block content %}
-{% load static %}
-<section class="hero">
+    <main>
+        <section class="hero">
             <div class="container hero-container">
                 <div class="hero-text">
                     <span class="tagline">CONECTANDO MENTES BRILHANTES AO MERCADO</span>
@@ -16,7 +16,7 @@
                         <a href="#" class="btn btn-primary">Sou Estudante: Buscar Projetos</a>
                         <a href="#" class="btn btn-secondary">Sou Empresa: Propor Desafio</a>
                     </div>
-                </div>
+
                 <div class="hero-visual">
                     <!-- Placeholder for the abstract network visualization -->
                     <div class="network-node node1"></div>
@@ -28,130 +28,15 @@
                 </div>
             </div>
         </section>
-
-         <!-- ====== Seção Sobre a FTT (Nova - Baseada na Tela 1) ====== -->
-         <section id="about" class="content-section about-ftt-section">
-             <div class="container">
-                  <div class="section-content-split">
-                      <div class="section-text">
-                         <h2>Sobre a Fábrica de Tecnologias Turing</h2>
-                         <p>Já pensou em mergulhar em um ambiente onde a tecnologia e a inovação caminham lado a lado? A Fábrica de Tecnologias Turing (FTT) é uma fábrica escola de software, composta por estudantes da Universidade Evangélica de Goiás – UniEVANGÉLICA, onde você pode transformar suas habilidades teóricas em prática real, em um ambiente dinâmico e colaborativo.</p>
-                         <p>Nossa missão é proporcionar serviços de alta qualidade a empresas e instituições na região, capacitando nossos alunos a aplicar os conhecimentos teóricos na prática, aproveitando as soluções tecnológicas inovadoras disponíveis no mercado.</p>
-                         <p>O gerenciamento da FTT é uma colaboração entre a coordenação e os professores do curso de Engenharia de Software, que lideram tanto a gestão do processo quanto o desenvolvimento dos projetos.</p>
-                      </div>
-                      <div class="section-visual logo-visual">
-                           <!-- Reutilizar o logo aqui, talvez menor ou estilizado -->
-                           <img src="{% static 'img/logo.png' %}" alt="Fábrica de Tecnologias Turing Logo" class="section-logo">
-                      </div>
-                  </div>
-             </div>
-         </section>
-
-         <!-- ====== Seção Motivações (Nova - Baseada na Tela 2) ====== -->
-         <section id="motivations" class="content-section motivations-section">
-             <div class="container">
-                 <h2 class="section-title-center">Por Que Fazer Parte da FTT?</h2>
-                 <p class="section-subtitle-center">Trabalhar na FTT significa ingressar em um ambiente inovador, onde cada dia é uma oportunidade de aprendizado e crescimento. É o lugar ideal para impulsionar sua carreira:</p>
-                 <div class="benefits-grid">
-                     <!-- Card Benefício 1 -->
-                     <div class="benefit-card">
-                         <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
-                         <h4 class="benefit-title">Experiência Real de Mercado</h4>
-                         <p>Vivencie o cotidiano de uma empresa de tecnologia, do planejamento à entrega final de projetos reais.</p>
-                     </div>
-                     <!-- Card Benefício 2 -->
-                     <div class="benefit-card">
-                         <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                         <h4 class="benefit-title">Desenvolvimento Profissional</h4>
-                         <p>Aprimore suas habilidades técnicas e soft skills essenciais para o mercado de trabalho.</p>
-                     </div>
-                     <!-- Card Benefício 3 -->
-                     <div class="benefit-card">
-                         <div class="benefit-icon"><i class="fas fa-users"></i></div>
-                         <h4 class="benefit-title">Trabalho em Equipe</h4>
-                         <p>Colabore com colegas em projetos desafiadores, aprendendo a importância da comunicação e cooperação.</p>
-                     </div>
-                     <!-- Card Benefício 4 -->
-                     <div class="benefit-card">
-                         <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
-                         <h4 class="benefit-title">Ambiente Colaborativo</h4>
-                         <p>Participe de um espaço dinâmico e inovador, onde ideias são compartilhadas e soluções criadas em conjunto.</p>
-                     </div>
-                     <!-- Card Benefício 5 -->
-                     <div class="benefit-card">
-                         <div class="benefit-icon"><i class="fas fa-file-alt"></i></div>
-                         <h4 class="benefit-title">Portfólio Valorizado</h4>
-                         <p>Construa um portfólio robusto com projetos reais que destacam suas competências para futuros empregadores.</p>
-                     </div>
-                     <!-- Card Benefício 6 -->
-                     <div class="benefit-card">
-                         <div class="benefit-icon"><i class="fas fa-network-wired"></i></div>
-                         <h4 class="benefit-title">Networking</h4>
-                         <p>Conecte-se com professores, profissionais e colegas, expandindo sua rede de contatos na área de tecnologia.</p>
-                     </div>
-                 </div>
-             </div>
-         </section>
-
-         <!-- ====== Seção Como Participar (Nova - Baseada nas Telas 4 e 5) ====== -->
-         <section id="how-to-join" class="content-section how-to-join-section">
-             <div class="container">
-                  <div class="section-content-split reverse-layout-on-desktop">
-                       <div class="section-text">
-                         <h2 style="text-align: left; margin-bottom: 1.5rem;">Como Posso Participar?</h2>
-                         <div class="participation-requirements">
-                             <h3>Requisitos</h3>
-                             <p>Para fazer parte da nossa equipe é necessário ser <strong>aluno regular de qualquer curso da UniEVANGÉLICA</strong>. Além disso, valorizamos muito o engajamento, o interesse e o entusiasmo dos estudantes em se envolver em trabalhos inovadores e desafiadores.</p>
-                         </div>
-                         <div class="participation-steps">
-                             <h3>Passo a Passo para Ingressar</h3>
-                             <ol class="steps-list">
-                                 <li>
-                                     <span class="step-number">1</span>
-                                     <span class="step-text">Preencha a ficha de inscrição (link abaixo, quando disponível) e envie sua solicitação.</span>
-                                 </li>
-                                 <li>
-                                     <span class="step-number">2</span>
-                                     <span class="step-text">Participe das provas de proficiência para avaliarmos suas habilidades.</span>
-                                 </li>
-                                 <li>
-                                     <span class="step-number">3</span>
-                                     <span class="step-text">Realize sua entrevista com a coordenação da FTT.</span>
-                                 </li>
-                                 <li>
-                                     <span class="step-number final-step"><i class="fas fa-check"></i>4</span> <!-- Ícone no final -->
-                                     <span class="step-text">Caso aprovado, um grande passo para o seu futuro foi dado! Coisas boas vêm por aí...</span>
-                                 </li>
-                             </ol>
-                             <!-- Adicionar botão para formulário de inscrição se houver -->
-                             <!-- <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;">Inscreva-se Agora</a> -->
-                         </div>
-                      </div>
-                       <div class="section-visual steps-visual">
-                             <!-- Placeholder Visual: Ícones representando os passos -->
-                             <div class="steps-icon-group">
-                                 <i class="fas fa-file-signature"></i>
-                                 <i class="fas fa-tasks"></i>
-                                 <i class="fas fa-comments"></i>
-                                 <i class="fas fa-award"></i>
-                             </div>
-                       </div>
-                  </div>
-             </div>
-         </section>
-
-         <!-- ====== Seção Oportunidades Únicas (Nova - Baseada na Tela 3) ====== -->
-         <section id="opportunities" class="content-section opportunities-section">
-             <div class="container text-center"> <!-- Centraliza conteúdo -->
-                 <h2>Oportunidades Únicas na FTT</h2>
-                 <p>Na Fábrica de Software FTT, cada projeto é uma nova oportunidade de aprendizado e crescimento. Você estará sempre desafiado a pensar de forma crítica e a inovar, preparando-se para se tornar um profissional completo e pronto para o mercado.</p>
-                 <p>Não perca essa chance de transformar sua carreira e alcançar novos horizontes. Venha fazer parte da Fábrica de Tecnologias Turing e seja protagonista da sua própria história de sucesso!</p>
-                 <div style="margin-top: 2rem;">
-                      <a href="integrantes.html" class="btn btn-primary">Conheça Nossa Equipe</a>
-                      <span style="margin: 0 0.5rem; color: var(--color-light-grey);">ou</span>
-                      <a href="solicitacao.html" class="btn btn-secondary">Proponha um Projeto</a>
-                 </div>
-             </div>
-         </section>
-
+    </main>
+    <script>
+        // Basic mobile menu toggle (optional)
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        if(menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+    </script>
 {% endblock %}
