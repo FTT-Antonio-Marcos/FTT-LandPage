@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Projetos{% endblock %}
+
+{% block content %}
+{% load static %}
+ <main>
+        <section class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Nossos Projetos</h2>
+                <p class="section-subtitle-center">Conheça alguns dos projetos inovadores desenvolvidos pela nossa equipe na Fábrica de Tecnologias Turing.</p>
+
+                <div class="projects-grid">
+
+                    <!-- Card Projeto Exemplo 1 (AVIC - Com Placeholder Icon) -->
+                    <div class="project-card"
+                         data-name="AVIC"
+                         data-image=""
+                         data-description="Sistema de gerenciamento completo para [Descrever brevemente o que o AVIC faz]. Focado em otimizar processos e melhorar a eficiência."
+                         data-tags="Web App,PHP,Laravel,Vue.js">
+                        <div class="project-visual placeholder"> <!-- Adicionar classe placeholder -->
+                            <i class="fas fa-layer-group placeholder-icon"></i> <!-- Ícone placeholder -->
+                        </div>
+                        <div class="project-info">
+                            <h4 class="project-name">AVIC</h4>
+                            <p class="project-short-desc">Sistema de gerenciamento para [Área do AVIC].</p>
+                            <div class="project-tags">
+                                <span class="tag tag-web">Web App</span>
+                                <span class="tag tag-php">PHP</span>
+                                <!-- Adicione mais tags se necessário -->
+                            </div>
+                         </div>
+                        <button type="button" class="btn btn-outline-red project-details-btn">Detalhes</button>
+                    </div>
+
+                    <!-- Card Projeto Exemplo 2 (BAAN - Com Imagem Real) -->
+                    <div class="project-card"
+                         data-name="BAAN"
+                         data-image="path/to/baan-screenshot.jpg"
+                         data-description="Plataforma online para [Descrever função do BAAN]. Desenvolvido utilizando tecnologias modernas para uma experiência de usuário fluida."
+                         data-tags="Web App,React,Node.js,Database">
+                         <div class="project-visual">
+                            <img src="path/to/baan-screenshot.jpg" alt="Screenshot do projeto BAAN"> <!-- Imagem real -->
+                        </div>
+                         <div class="project-info">
+                            <h4 class="project-name">BAAN</h4>
+                            <p class="project-short-desc">Plataforma online para [Função do BAAN].</p>
+                             <div class="project-tags">
+                                <span class="tag tag-web">Web App</span>
+                                <span class="tag tag-react">React</span>
+                                <span class="tag tag-node">Node.js</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-red project-details-btn">Detalhes</button>
+                    </div>
+
+                     <!-- Card Projeto Exemplo 3 (Comunicação) -->
+                    <div class="project-card"
+                         data-name="Comunicação"
+                         data-image=""
+                         data-description="Ferramenta interna para otimizar a comunicação e colaboração entre equipes [Detalhar objetivo]."
+                         data-tags="Ferramenta Interna,Colaboração">
+                        <div class="project-visual placeholder">
+                            <i class="fas fa-comments placeholder-icon"></i>
+                        </div>
+                        <div class="project-info">
+                            <h4 class="project-name">Comunicação</h4>
+                            <p class="project-short-desc">Ferramenta interna para colaboração.</p>
+                             <div class="project-tags">
+                                <span class="tag tag-tool">Ferramenta</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-red project-details-btn">Detalhes</button>
+                    </div>
+
+                    <!-- Card Projeto Exemplo 4 (Direito) -->
+                     <div class="project-card"
+                         data-name="Direito"
+                         data-image=""
+                         data-description="Aplicação desenvolvida para auxiliar [Profissionais/Estudantes] de Direito em [Tarefa específica]."
+                         data-tags="Web App,Jurídico">
+                        <div class="project-visual placeholder">
+                             <i class="fas fa-gavel placeholder-icon"></i>
+                        </div>
+                         <div class="project-info">
+                            <h4 class="project-name">Direito</h4>
+                            <p class="project-short-desc">Aplicação para área jurídica.</p>
+                              <div class="project-tags">
+                                <span class="tag tag-web">Web App</span>
+                                <span class="tag tag-juridico">Jurídico</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-red project-details-btn">Detalhes</button>
+                    </div>
+
+                    <!-- Adicione cards para eBarn, Fábrica de Recurso, MedVet, Pasteur, etc. -->
+                    <!-- seguindo o mesmo padrão -->
+
+                </div> <!-- Fim .projects-grid -->
+            </div> <!-- Fim .container -->
+        </section> <!-- Fim .projects-section -->
+    </main>
+
+{% endblock %}

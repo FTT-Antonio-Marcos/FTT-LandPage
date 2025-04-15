@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+
+{% block title %}Integrantes{% endblock %}
+
+{% block content %}
+{% load static %}
+<main>
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Nossa Equipe</h2>
+
+                <!-- ==================== Categoria Orientadores ==================== -->
+                <div class="team-category">
+                    <h3 class="category-title">Orientadores</h3>
+                    <div class="team-grid">
+
+                        <!-- Card Henrique -->
+                        <div class="member-card"
+                             data-name="Henrique"
+                             data-photo="img/team/henrique.jpg"
+                             data-tags="Orientador,Professor"
+                             data-bio="Descrição completa do Henrique. Professor da área X, especialista em Y e Z.">
+                            <!-- Conteúdo Visível -->
+                            <div class="member-photo">
+                                <img src="img/team/henrique.jpg" alt="Foto de Henrique"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Henrique</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Jeferson -->
+                         <div class="member-card"
+                              data-name="Jeferson"
+                              data-photo="img/team/jeferson.jpg"
+                              data-tags="Orientador"
+                              data-bio="Descrição completa do Jeferson.">
+                             <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/jeferson.jpg" alt="Foto de Jeferson"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Jeferson</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                        <!-- Card William -->
+                         <div class="member-card"
+                              data-name="William"
+                              data-photo="img/team/william.jpg"
+                              data-tags="Orientador"
+                              data-bio="Descrição completa do William.">
+                              <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/william.jpg" alt="Foto de William"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">William</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                        <!-- Card Igor (Placeholder) -->
+                        <div class="member-card"
+                             data-name="Igor"
+                             data-photo=""
+                             data-tags="Orientador"
+                             data-bio="Descrição completa do Igor.">
+                             <!-- Conteúdo Visível -->
+                            <div class="member-photo placeholder">
+                                <i class="fas fa-user placeholder-icon"></i>
+                            </div>
+                            <h4 class="member-name">Igor</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Gustavo (Orientador - Placeholder) -->
+                        <div class="member-card"
+                              data-name="Gustavo"
+                              data-photo=""
+                              data-tags="Orientador"
+                              data-bio="Descrição completa do Gustavo (Orientador).">
+                              <!-- Conteúdo Visível -->
+                            <div class="member-photo placeholder">
+                                <i class="fas fa-user placeholder-icon"></i>
+                            </div>
+                            <h4 class="member-name">Gustavo</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Holehon (Placeholder) -->
+                        <div class="member-card"
+                             data-name="Holehon"
+                             data-photo=""
+                             data-tags="Orientador"
+                             data-bio="Descrição completa do Holehon.">
+                             <!-- Conteúdo Visível -->
+                            <div class="member-photo placeholder">
+                                <i class="fas fa-user placeholder-icon"></i>
+                            </div>
+                            <h4 class="member-name">Holehon</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Talles (Placeholder) -->
+                        <div class="member-card"
+                             data-name="Talles"
+                             data-photo=""
+                             data-tags="Orientador"
+                             data-bio="Descrição completa do Talles.">
+                             <!-- Conteúdo Visível -->
+                            <div class="member-photo placeholder">
+                                <i class="fas fa-user placeholder-icon"></i>
+                            </div>
+                            <h4 class="member-name">Talles</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+                        <!-- Fim Cards Orientadores -->
+                    </div>
+                </div>
+
+                <!-- ==================== Categoria Internos ==================== -->
+                <div class="team-category">
+                    <h3 class="category-title">Internos</h3>
+                    <div class="team-grid">
+
+                         <!-- Card Arthur -->
+                         <div class="member-card"
+                               data-name="Arthur"
+                               data-photo="img/team/arthur.jpg"
+                               data-tags="Interno,Dev Front End"
+                               data-bio="Descrição completa do Arthur.">
+                            <!-- Conteúdo Visível -->
+                            <div class="member-photo">
+                                <img src="img/team/arthur.jpg" alt="Foto de Arthur"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Arthur</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Felipe -->
+                         <div class="member-card"
+                               data-name="Felipe"
+                               data-photo="img/team/felipe.jpg"
+                               data-tags="Interno,Dev Full Stack"
+                               data-bio="Descrição completa do Felipe.">
+                             <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/felipe.jpg" alt="Foto de Felipe"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Felipe</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Gustavo (Interno) -->
+                         <div class="member-card"
+                               data-name="Gustavo"
+                               data-photo="img/team/gustavo_interno.jpg"
+                               data-tags="Interno,Dev Back End"
+                               data-bio="Sou um desenvolvedor de software, focado atualmente no back-end, acredito que uma boa funcionalidade é aquela que não pode e nem precisa ser vista. Gosto de me aventurar em novas experiências, me desafiando e me aperfeiçoando.">
+                             <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/gustavo_interno.jpg" alt="Foto de Gustavo"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Gustavo</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Isabella -->
+                         <div class="member-card"
+                               data-name="Isabella"
+                               data-photo="img/team/isabella.jpg"
+                               data-tags="Interno,UI/UX Design"
+                               data-bio="Descrição completa da Isabella.">
+                            <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/isabella.jpg" alt="Foto de Isabella"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Isabella</h4>
+                             <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Jeniffer -->
+                         <div class="member-card"
+                              data-name="Jeniffer"
+                              data-photo="img/team/jeniffer.jpg"
+                              data-tags="Interno,Data Science"
+                              data-bio="Descrição completa da Jeniffer.">
+                            <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/jeniffer.jpg" alt="Foto de Jeniffer"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Jeniffer</h4>
+                             <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Rafael Sena -->
+                         <div class="member-card"
+                               data-name="Rafael Sena"
+                               data-photo="img/team/rafael_sena.jpg"
+                               data-tags="Interno,Dev Mobile"
+                               data-bio="Descrição completa do Rafael Sena.">
+                            <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/rafael_sena.jpg" alt="Foto de Rafael Sena"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Rafael Sena</h4>
+                             <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                         <!-- Card Rafael -->
+                         <div class="member-card"
+                              data-name="Rafael"
+                              data-photo="img/team/rafael.jpg"
+                              data-tags="Interno,Infraestrutura"
+                              data-bio="Descrição completa do Rafael.">
+                            <!-- Conteúdo Visível -->
+                             <div class="member-photo">
+                                <img src="img/team/rafael.jpg" alt="Foto de Rafael"> <!-- SUBSTITUA CAMINHO -->
+                            </div>
+                            <h4 class="member-name">Rafael</h4>
+                             <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+
+                        <!-- Card Amabille (Placeholder) -->
+                         <div class="member-card"
+                              data-name="Amabille"
+                              data-photo=""
+                              data-tags="Interno,QA"
+                              data-bio="Descrição completa da Amabille.">
+                             <!-- Conteúdo Visível -->
+                             <div class="member-photo placeholder">
+                                <i class="fas fa-user placeholder-icon"></i>
+                            </div>
+                            <h4 class="member-name">Amabille</h4>
+                            <button type="button" class="btn btn-outline-red member-details-btn">Detalhes</button>
+                        </div>
+                        <!-- Fim Cards Internos -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+{% endblock %}
