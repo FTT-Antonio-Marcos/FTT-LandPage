@@ -6,7 +6,6 @@
     <title>{% block title %}Fábrica de Software FTT{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="style.css" >
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,10 +28,6 @@
                     <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                 </ul>
             </nav>
-
-           <!--<button class="mobile-menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('active')">
-                ☰
-            </button> -->
         </div>
     </header>
 
@@ -46,15 +41,47 @@
         &copy; {{ now|date:"Y" }} FTT - Fábrica de Tecnologias Turing 2025
     </footer>
 
-    <script>
-            // Basic mobile menu toggle (optional)
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const mainNav = document.querySelector('.main-nav');
-            if(menuToggle && mainNav) {
-                menuToggle.addEventListener('click', () => {
-                    mainNav.classList.toggle('active');
-                });
-            }
-        </script>
+    <!-- Botão flutuante do chatbot -->
+    <div id="chatbot-container">
+  <div id="chat-icon" onclick="toggleChat()">🤖</div>
+
+  <div id="chat-box">
+    <div id="chat-header">
+      <span>Fale com o TuringBot 🧠</span>
+      <span id="close-btn" onclick="toggleChat()">✖</span>
+    </div>
+    <div id="chat-body">
+      <textarea id="mensagem" placeholder="Digite sua pergunta..."></textarea>
+      <button onclick="enviarMensagem()">Enviar</button>
+      <div id="botReply"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById("chat-box");
+    box.classList.toggle("open");
+  }
+
+  async function enviarMensagem() {
+    const mensagem = document.getElementById("mensagem").value;
+    const botReply = document.getElementById("botReply");
+    botReply.innerHTML = "⏳ Pensando...";
+
+    try {
+      const response = await fetch("/chatbot/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: mensagem })
+      });
+
+      const data = await response.json();
+      botReply.innerHTML = data.reply || "❌ Erro ao responder.";
+    } catch (error) {
+      botReply.innerHTML = "⚠️ Erro ao se conectar.";
+    }
+  }
+</script>
 </body>
 </html>
