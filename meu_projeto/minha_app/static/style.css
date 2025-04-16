@@ -1824,7 +1824,7 @@ img {
 }
 
 #chat-icon {
-  background: linear-gradient(135deg, #7b1fa2, #e53935);
+  background: linear-gradient(135deg, #b20710, #0a0a0a);
   color: white;
   width: 60px;
   height: 60px;
@@ -1894,7 +1894,7 @@ img {
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(to right, #b20710, #0a0a0a);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -1902,7 +1902,7 @@ img {
 }
 
 #chat-body button:hover {
-  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  background: linear-gradient(to right, #b20710, #0a0a0a);
 }
 
 #botReply {
